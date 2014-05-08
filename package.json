@@ -1,0 +1,22 @@
+{
+  "name": "backbone-bufferify",
+  "version": "0.0.1",
+  "description": "Backbone utility for working with Buffers",
+  "main": "bufferify.js",
+  "scripts": {
+    "prepublish": "coffee -c index.coffee",
+    "test": "mocha"
+  },
+  "repository": "https://github.com/shesek/backbone-buffer",
+  "keywords": [
+    "backbone",
+    "buffer"
+  ],
+  "author": "Nadav Ivgi",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "backbone": "^1.1.2",
+    "mocha": "^1.18.2"
+  }
+}
