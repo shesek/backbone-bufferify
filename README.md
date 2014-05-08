@@ -23,8 +23,8 @@ Backbone utility for working with Buffers.
     signature: 'MEYCIQCanWQvmsuECBjPl3z9GjIhB0x/nYpaJ40cGOgFBuxSbQIhANVlp6VhZl0hPkD8/ZydHupssbIdbuh1IRck9cg5Yivv'
   }, { parse: true });
 
-  assert(Buffer.isBuffer(user.public_key));
-  assert(Buffer.isBuffer(user.signature));
+  assert(Buffer.isBuffer(user.get('public_key')));
+  assert(Buffer.isBuffer(user.get('signature')));
 
   // User::toJSON() turns them back into strings
   var plain = user.toJSON();
