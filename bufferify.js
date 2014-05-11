@@ -7,7 +7,7 @@
     parse = model.prototype.parse;
     return function(attrs) {
       var encoding, key;
-      attrs = parse(attrs);
+      attrs = parse.call(this, attrs);
       for (key in defs) {
         encoding = defs[key];
         if (key in attrs && !Buffer.isBuffer(attrs[key])) {

@@ -1,5 +1,5 @@
 parser = (model, defs) -> parse=model::parse; (attrs) ->
-  attrs = parse attrs
+  attrs = parse.call this, attrs
   for key, encoding of defs when key of attrs \
                             and not Buffer.isBuffer attrs[key]
     attrs[key] = new Buffer attrs[key], encoding
