@@ -1,6 +1,6 @@
 {
   "name": "backbone-bufferify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Backbone utility for working with Buffers",
   "main": "bufferify.js",
   "scripts": {

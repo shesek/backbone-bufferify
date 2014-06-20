@@ -21,13 +21,15 @@
   jsonifier = function(model, defs) {
     var toJSON;
     toJSON = model.prototype.toJSON;
-    return function() {
+    return function(opt) {
       var attrs, encoding, key;
       attrs = toJSON.call(this);
-      for (key in defs) {
-        encoding = defs[key];
-        if (key in attrs && Buffer.isBuffer(attrs[key])) {
-          attrs[key] = attrs[key].toString(encoding);
+      if (!(opt != null ? opt.keep_buff : void 0)) {
+        for (key in defs) {
+          encoding = defs[key];
+          if (key in attrs && Buffer.isBuffer(attrs[key])) {
+            attrs[key] = attrs[key].toString(encoding);
+          }
         }
       }
       return attrs;

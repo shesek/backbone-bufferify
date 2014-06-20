@@ -5,11 +5,12 @@ parser = (model, defs) -> parse=model::parse; (attrs) ->
     attrs[key] = new Buffer attrs[key], encoding
   attrs
 
-jsonifier = (model, defs) -> toJSON = model::toJSON; ->
+jsonifier = (model, defs) -> toJSON = model::toJSON; (opt) ->
   attrs = toJSON.call this
-  for key, encoding of defs when key of attrs \
-                            and Buffer.isBuffer attrs[key]
-    attrs[key] = attrs[key].toString(encoding)
+  unless opt?.keep_buff
+    for key, encoding of defs when key of attrs \
+                              and Buffer.isBuffer attrs[key]
+      attrs[key] = attrs[key].toString(encoding)
   attrs
 
 install = (model, defs) ->

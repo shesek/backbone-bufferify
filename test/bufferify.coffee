@@ -37,3 +37,7 @@ describe 'backbone-bufferfy', ->
     bar = new Bar { qux: 'cc' }, parse: true
     eq bar.get('qux').toString('hex'), 'ccaa'
     eq bar.toJSON().qux, 'cc'
+
+  it 'allows specifying "keep_buff" option in toJSON to disable stringification', ->
+    foo = new Foo foo: new Buffer [0xaa]
+    eq foo.toJSON(keep_buff: true).foo[0], 0xaa
